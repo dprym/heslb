@@ -1,0 +1,50 @@
+<html>
+<head>
+<style>
+.error{
+       color:red;
+	   }
+</style>
+</head>
+<body>
+<p class="error">
+<?php
+if(empty($name)){
+     include 'submit.html';
+     echo "<span class='error'>name cannot be blank</span>";
+	 exit;}
+/*else
+	continue;
+*/
+if(empty($email)){
+	include 'submit.html';
+     echo "<span class='error'>email cannot be blank</span>";
+	 exit;}
+
+/*else
+	continue;
+*/
+if(empty($gender)){
+     include 'submit.html';
+     echo "<span class='error'>please specify your gender</span>";
+	 exit;}
+/*else
+	continue;
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+</p>
+</body>
+</html>

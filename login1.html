@@ -1,0 +1,46 @@
+<html>
+<head>
+<style>
+.body{ background-color:grey;
+       overflow:hidden;
+      }
+.mainbody {
+           font-size:40px;
+           background-color:cyan;
+		   allign:center;
+		   position:center;
+		   margin-top:15%;
+		   margin-bottom:25%;
+		   margin-left:15%;
+		   margin-right:15%;
+		   
+		  
+
+       }
+.h1 { font-size:50px;
+      text-align:center;
+	  color:red;
+	  }
+.error{
+       color:red;
+	   }
+</style>
+</head>
+<body class="body">
+
+<div class="mainbody">
+<p>
+<h1 class="h1">HELSB INTRANET</h1>
+<form action="login.php" method="POST">
+<fieldset>
+<legend style="text-align:center">LOG IN</legend>
+username.<input type="text" name="username"><span class="error">*username not found</span><br>
+password.<input type="password" name="password"><br>
+<input style="font-size:40px" type="submit" value="login">
+</fieldset>
+</form>
+
+</p>
+</div>
+</body>
+</html>

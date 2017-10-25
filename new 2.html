@@ -1,0 +1,23 @@
+<?php
+session_start();
+?>
+<html>
+<head>
+</head>
+<body>
+<?php
+if($_SESSION['accesslevel']=='5')
+{
+?>
+
+<form method="link" action="hapa.html/">
+<input type="submit" value="minya hapa">
+</form>
+<?php
+}
+
+?>
+
+
+</body>
+</html>

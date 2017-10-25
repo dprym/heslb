@@ -1,0 +1,13 @@
+<?php
+$servername="localhost:8080";
+$username="username";
+$password="password";
+// create connection//
+$conn=mysqli($servername,$username,$password);
+//check connection//
+if(!$conn)
+	die("connection failed:".mysqli_connect_error());
+else
+	echo "connected successfully";
+
+?>

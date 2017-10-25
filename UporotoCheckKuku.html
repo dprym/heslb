@@ -1,0 +1,45 @@
+<html>
+<head>
+<style>
+.error{
+       color:red;
+	   }
+.errordisplay{ color:red;
+              text-align:center;
+			  font-size:100px;
+			  padding:0;
+			  margin:0;
+			  }
+</style>
+</head>
+<body>
+<p class="error">
+<?php
+if(empty($Firstname)){
+     include 'UporotoKukuOda.html';
+     echo "<h3 class='errordisplay'>tafadhari andika jina</h3>";
+	 exit;}
+if(empty($Lastname)){
+     include 'UporotoKukuOda.html';
+     echo "<h3 class='errordisplay'>tafadhari andika jina la pili</h3>";
+	 exit;}
+if(empty($phonenumber)){
+     include 'UporotoKukuOda.html';
+     echo "<h3 class='errordisplay'>tafadhari ingiza namba ya simu</h3>";
+	 exit;}	 
+
+if($product=="bonyeza hapa kuchagua"){
+	include 'UporotoKukuOda.html';
+     echo "<h3 class='errordisplay'>tafadhari chagua aina ya kuku</h3>";
+	 exit;}
+
+
+if(empty($NumberOfItems)){
+     include 'UporotoKukuOda.html';
+     echo "<h3 class='errordisplay'>tafadhari andika idadi</h3>";
+	 exit;}
+
+?>
+</p>
+</body>
+</html>

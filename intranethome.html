@@ -1,0 +1,158 @@
+<?php
+session_start();
+if(empty($_SESSION["username"]))
+{
+	header("location:login.html");
+	exit;
+	}
+
+
+?>
+<html>
+<head>
+<style>
+.header1{
+         font-size:400%;
+		 background-color:cyan;
+		 color:red;
+		 text-align:center;
+		 margin-bottom:10px;
+		 }
+.mainbody{
+          background-color:cyan;
+		  }
+.kushoto{
+         background-color:black;
+		 float:left;
+		 width:25%;
+		 color:white;
+		 
+		 }
+		 
+.kulia {
+        background-color:cyan;
+		float:right;
+		width:25%;
+		position:relative;
+		left:120px;
+		text-align:center;
+		font-size:30px;
+		}
+ :link{
+       text-decoration:none;
+	   color:inherit;
+	   
+       }
+ :active{
+          color:red;
+          }
+ :hover{
+        text-decoration:underline;
+		color:blue;
+        }
+ :visited{ 
+          color:yellow;
+          }
+
+
+</style>
+</head>
+<body>
+<h1 class="header1">HESLB INTRANET</h1>
+<div style="float:left;background-color:white;color:red;margin:0px;padding:0px">
+search member
+<form style="padding:0px;margin:0px">
+<input type="search" list="memberlist" name="searchmember">
+<datalist id="memberlist">
+<option value="denis">denis</option>
+</datalist>
+<input type="submit" value="search">
+</form>
+</div>
+<div style="background-color:#F08080;text-align:center;color:blue;font-size:40px">
+<p>WELCOME</P>
+</div>
+
+<div style="float:right;position:relative;top:-120px">
+<?php
+if(empty($_SESSION['profilepicture']))
+{
+
+?>
+<form method="POST" action="upload.php" enctype="multipart/form-data">
+upload your profile picture.<br>
+<input type="file" name="filetoupload">
+<input type="submit" value="upload" name="submit">
+</form>
+<?php
+}
+else
+{
+?>
+<img src="<?php echo $_SESSION['profilepicture']; ?>"  height="240px" width="120px">
+<?php
+}
+?>
+<p style="width:0%;margin-top:0px;">username</p>
+</div>
+<div class="kushoto">
+<a href="intranethome.html" style="text-align:center;font-size:40px">HOME</a>
+<h2 style="text-decoration:underline">DEPARTMENTS<h2>
+<p style="color:white;font-family:comic sans ms">
+<ul type="none" style="text-align:left">
+<li><a href="repayment.html"><span style="font-family:comic sans ms">REPAYMENT</span></a></li>
+<li><a href="allocation.html"><span style="font-family:comic sans ms">ALLOCATION</span></a></li>
+<li><a href="disbursement.html"><span style="font-family:comic sans ms">DISBURSEMENT</span></a></li>
+<li><a href="communication.html"><span style="font-family:comic sans ms">COMMUNICATION</span></a></li>
+<li><a href="accounts.html"><span style="font-family:comic sans ms">ACCOUNTS</span></a></li>
+<li><a href="audit.html"><span style="font-family:comic sans ms">AUDIT</span></a></li>
+<li><a href="planning and ict.html"><span style="font-family:comic sans ms">PLANNING AND ICT</span></a></li>
+<li><a href="human resource.html"><span style="font-family:comic sans ms">HUMAN RESOURCE</span></A></LI>
+
+</ul>
+</p>
+</div>
+<!--upande wa kushot unaaanza apa-->
+<div class="kulia">
+<a href="createmessage.html">+create new message</a>
+<br>
+<a href="messages.html">messages</a>
+<br>
+<p>assignments
+<ul>
+<br>ojfofjos<br>
+</ul>
+</p>
+<form method="link" action="logout.php">
+<input type="submit" value="logout">
+</form>
+
+<?php
+if($_SESSION['accesslevel']=='5')
+{
+?>
+<form method="link" action="createuser.html">
+<input type="submit" value="create user">
+</form>
+<form method="link" action="deleteuser.html">
+<input type="submit" value="delete user">
+</form>
+<?php
+}
+?>
+<p>you are <?php echo $_SESSION['username'];?></p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

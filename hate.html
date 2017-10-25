@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+function myfunction1(w){
+var pic;
+if(w==1)
+ pic="love.PNG"
+ else
+ pic="middefinger.JPG"
+ document.getElementById("myimage").src=pic;
+}
+</script>
+<p>do you love me or hate me?<p>
+<img id="myimage" src="whatever.JPG" height="450px" width="450px">
+<p>
+<button type="button" onclick="myfunction1(1)">i love you</button>
+<button type="button" onclick="myfunction1(2)">i hate you</button>
+</p>
+</body>
+</html>

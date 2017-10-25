@@ -1,0 +1,81 @@
+<html>
+<head>
+<style>
+.body{
+    background-color:purple;
+	width:1000px;
+	}
+</style>
+</head>
+<body class="body">
+<h1>My first Javascript</h1>
+<p id="demo"></p>
+<script>
+document.getElementById("demo").innerHTML="hello world";
+</script>
+<button type="button" onclick="myfunction()">press nigga</button>
+<p id="trial">wassap nigga</p>
+<script>
+function myfunction(){
+document.getElementById("trial").innerHTML="go fuck yourself";
+}
+</script>
+<p>do you love me or hate me?<p>
+<script>
+function myfunction1(w){
+if(w==1)
+ pic="love.PNG"
+ else
+ pic="middefinger.JPG"
+ document.getElementById("myimage").src=pic;
+}
+</script>
+<img id="myimage" src="whatever.JPG" height="450px" width="450px"> </p>
+<p>
+<button type="button" onclick="myfunction1(1)">i love you</button>
+<button type="button" onclick="myfunction1(2)">i hate you</button>
+</p>
+<form action="<?php echo $_SERVER['PHP_SELF'];?>">
+<fieldset>
+<legend>personal information</legend>
+First name.<br>
+<input type="text" name="firstname"><br>
+last name.<br>
+<input type="text" name="lastname"><br>
+<input type="submit" value="send">
+<input type="reset">
+</fieldset>
+</form>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+$firstname=htmlspecialchars($_REQUEST[firstname]);
+if(empty($firstname))
+echo "Name is empty";
+else
+echo $firstname;
+}
+else
+echo "method used is GET AND NOT POST";
+?>
+<form>
+<input list="departments" type="text" name="naweza">
+<datalist id="departments">
+<option>repayment</option>
+<option>allocation</option>
+<option>mathematics</option>
+<option>information technology</option>
+</datalist>
+<br>
+<input type="submit">
+<input type="reset">
+</form>
+<noscript>sorry your browser does not support javascript</noscript>
+<button type="button" onclick="document.getElementById('tarehe').innerHTML=Date()">click here to display the date</button>
+<p id="tarehe"></p>
+<?php
+echo Date();
+
+?>
+
+</body>
+</html>

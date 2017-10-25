@@ -1,0 +1,55 @@
+<?php
+session_start();
+set_time_limit(0);
+
+$servernamedb="localhost";
+$usernamedb="denis";
+$passworddb="johnydepp0";
+$dbname="messages";	
+$receiver=$_SESSION["username"];
+
+
+$conn=mysqli_connect($servernamedb,$usernamedb,$passworddb,$dbname);
+if(!$conn)
+	die("connection error ").mysqli_error($conn);
+	
+$sql="SELECT * FROM $receiver";
+$return=mysqli_query($conn,$sql);
+if(!$return)
+ die("no messages");
+{
+?>
+<html>
+<head>
+</head>
+<body>
+<caption>messages</caption>
+<table width="50%">
+<th>from</th>
+<th>message</th>
+<?php
+}
+while($result=mysqli_fetch_array($return))
+{
+if(empty($result))
+ {
+   echo "<tr><td>"."no messages for now"."</td></tr>";
+ }
+echo "<tr><td>".$result['sendername']."</td>";
+echo "<td>".$result['message']."</td></tr>";
+
+{
+?>
+
+
+
+
+
+</table>
+</body>
+</html>
+<?php
+}
+}
+
+?>

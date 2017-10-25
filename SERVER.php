@@ -1,0 +1,14 @@
+<?php
+echo $_SERVER['PHP_SELF'];
+ECHO "<br>";
+ECHO $_SERVER['SERVER_NAME'];
+ECHO "<br>";
+echo $_SERVER['SERVER_PORT'];
+ECHO "<br>";
+ECHO $_SERVER['HTTP_HOST'];
+ECHO "<br>";
+ECHO $_SERVER['REMOTE_ADDR'];
+ECHO "<br>";
+ECHO $_SERVER['SERVER_ADMIN'];
+
+?>
