@@ -1,0 +1,74 @@
+<?php
+session_start();
+set_time_limit(0);
+$servernamedb="localhost";
+$usernamedb="username";
+$passworddb="johnydepp0";
+$dbname="exceluploads";
+
+$conn=mysqli_connect($servernamedb,$usernamedb,$passworddb,$dbname);
+if(!$conn)
+	DIE("connection error ".mysqli_error($conn));
+$sql="SELECT * FROM applicants";
+$result=mysqli_query($conn,$sql);
+?>
+<html>
+<head>
+<style>
+ table,th,td{
+             border:1px solid black;
+			 border-collapse:collapse;
+			 }
+ .search{
+         position:relative;
+		 float:right;
+		 width:25%;
+		 left:120px;
+		 }
+</style>
+</head>
+<body>
+<div>
+<p>upload your excell</p>
+<p style="position:relative;float:left;width:0%;right:0px">
+<form method="POST" enctype="multipart/form-data" action="uploadexcel.php">
+<input type="text" name="filerename" placeholder="name of file to be uploaded"><br>
+<input type="file" name="excelltoupload">
+<br><input type="submit" value="upload" name="submit">
+</form>
+</p>
+</div>
+<div class="search">
+<p>
+<form method="POST" enctype="multipart/form-data" action="excelsearch.html/">
+<input type="submit" value="search indexnumber" name="submit">
+</form>
+</p>
+</div>
+<br>
+<br>
+<div>
+<table width="100%">
+<th>S/N</th>
+<th>INDEX NUMBER</th>
+<th>NAME</th>
+<th>BOXFILE</th>
+<th>AUTHOR</th>
+
+<?php
+if($result){
+while($return=mysqli_fetch_array($result))
+{
+echo "<tr><td>".$return["id"]."</td>";
+echo "<td>".$return["indexnumber"]."</td>";
+echo "<td>".$return["name"]."</td>";
+echo "<td>".$return["boxfile"]."</td>";
+echo "<td>".$return["author"]."</td></tr>";
+
+ }
+}
+?>
+</table>
+</div>
+</body>
+</html>

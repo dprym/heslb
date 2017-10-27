@@ -1,0 +1,88 @@
+<?php
+session_start();
+set_time_limit(0);
+//if(isset($_REQUEST['POST']))
+//{
+$servernamedb="localhost";
+$usernamedb="username";
+$passworddb="johnydepp0";
+$dbname="exceluploads";
+
+$conn=mysqli_connect($servernamedb,$usernamedb,$passworddb,$dbname);
+if(!$conn)
+	DIE("connection error ".mysqli_error($conn));
+	
+	{
+	?>
+<html>
+<head>
+<style>
+ table,th,td{
+             border:1px solid black;
+			 border-collapse:collapse;
+			 }
+ 
+</style>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data" action="excelsearch.html">
+search<br>
+<input type="search" name="searchvalue" placeholder="indexnumber to search"><br>
+<br><input type="submit" value="search" name="search">
+</form>
+</form>	
+	
+	<?php
+	}
+if(isset($_POST['search']))
+{
+$searchvalue=$_POST['searchvalue'];
+$_SESSION['searchvalue']=$searchvalue;
+$sql="SELECT * FROM applicants WHERE indexnumber='$searchvalue'";
+$return=mysqli_query($conn,$sql);
+if($return)
+{
+ 
+  {
+?>
+
+<div>
+
+<form style="float:right;position:relative;width:10%" method="POST" action="printresults2.php/">
+<input type="submit" value="print results" name="print">
+</form>
+<p>
+<?php echo "search results for ".$searchvalue; 
+if(empty($return)) echo "<br>"."no result found";  ?>
+<table width="100%">
+<th>S/N</th>
+<th>INDEX NUMBER</th>
+<th>NAME</th>
+<th>BOXFILE</th>
+<th>AUTHOR</th>
+<?php
+}
+while($result=mysqli_fetch_array($return))
+{
+echo "<tr><td>".$result[0]."</td>";
+echo "<td>".$result[1]."</td>";
+echo "<td>".$result[2]."</td>";
+echo "<td>".$result[3]."</td>";
+echo "<td>".$result[4]."</td></tr>";
+
+ }
+{
+?>
+</table>
+</p>
+</div>
+</body>
+</html>
+<?php
+}
+}
+}
+//}
+//else
+ //   echo "error in submission";
+?>
